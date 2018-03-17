@@ -87,4 +87,4 @@ async def reltorTime(timeEST):
                 
 
 
-bot.run("NDIxODc4MTk5MjI0MzY5MTUy.DYTojw.EnUT9ZIIh4WwMc8H_SvHrwuwEC8")
+bot.run("TOKEN")
