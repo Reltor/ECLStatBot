@@ -87,5 +87,5 @@ For a list of stat choices:
 ''')
 
 
-bot.run("NDE5MjY3NjkxMTE5OTAyNzIx.DXt2eQ.DMgoAgR63bfWPA3-0Zz3MUyzLcs")
+bot.run("TOKEN")
 
