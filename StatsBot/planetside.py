@@ -226,3 +226,20 @@ def createCharacterObject(apiData):
     characterObject.accuracy = calculateAccuracy(userChar)
     return characterObject
 
+def characterSites(charName):
+    #Take the name
+    goodName = False
+    daLink = "stats.dasanfall.com/ps2/player/AtherumVS"
+    fisuLink = "ps2.fisu.pw/player/?name=AtherumVS"
+    planetstatsLink = "www.planetstats.net/atherumvs"
+    try:
+        charName = str(charName)
+        goodName = True
+    except ValueError:
+        goodName = False
+    #create URLs for various sites
+    daLink = "stats.dasanfall.com/ps2/player/" + charName
+    fisuLink = "ps2.fisu.pw/player/?name=" + charName
+    planetstatsLink = "www.planetstats.net/" + charName.lower()
+    #return them
+    return goodName, daLink, fisuLink, planetstatsLink
