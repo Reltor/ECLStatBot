@@ -6,7 +6,7 @@ ChangeLog - StatBot
 - v1.1 - Complete: 
   + Added command !PS2StatSites to generate links for a few popular statistics sites.
 - v1.2 - Complete 3/25:
- + Outfit Summary Command
+  + Outfit Summary Command
 - v1.3 - WIP:
   + Compare two characters command?
   + Compare two outfits command?
