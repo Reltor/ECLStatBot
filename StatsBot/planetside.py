@@ -29,7 +29,16 @@ class Character():
 
         self.server = "Gemini"
         
-        pass
+
+class Outfit():
+    def __init__(self):
+        self.tag = "HIVE"
+        self.ID = 0
+        self.creationDate = "xxx"
+        self.memberCount = 2
+        self.name = "The HIVE"
+        self.leaderName = "Bob"
+        
         
 #[RAW] BR, all cert values, ribbons, percent to next, ID, name
 #[DATE] creationDate ,lastLogin, lastSaved 
@@ -243,3 +252,26 @@ def characterSites(charName):
     planetstatsLink = "www.planetstats.net/" + charName.lower()
     #return them
     return goodName, daLink, fisuLink, planetstatsLink
+
+def getOutfitData(tag):
+    urlBase = urllib.request.urlopen("http://census.daybreakgames.com/s:PlanetsideBattles/get/ps2:v2/outfit/?alias_lower=" + tag.lower() + "&c:resolve=leader(name,type.faction)")
+    str_responseBase = urlBase.read().decode('utf-8')
+    objBase = json.loads(str_responseBase)
+    outfitStats = objBase['outfit_list'][0]
+    outfit = Outfit()
+    outfit.ID = outfitStats['outfit_id']
+    outfit.name = outfitStats['name']
+    outfit.tag = outfitStats['alias']
+    outfit.memberCount = outfitStats['member_count']
+    outfit.creationDate = outfitStats['time_created_date']
+    outfit.leaderName = outfitStats['leader']['name']['first']
+    print(outfit.tag)
+    return outfit
+
+def outfitSummary(tag):
+    outfit = getOutfitData(tag)
+    summary = ("[" + outfit.tag + "] " + outfit.name + "\n" +
+               "Leader: " + outfit.leaderName + "\n" +
+               "Created: " + outfit.creationDate + "\n" +
+                "Members: " + outfit.memberCount + "\n")
+    return summary
